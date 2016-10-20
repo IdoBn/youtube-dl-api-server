@@ -153,6 +153,12 @@ def info():
         'url': url,
         key: result,
     }
+
+    for res in result["info"]["formats"]:
+        index = res["url"].index(".com") + 4
+        res["url"] = "https://redirector.googlevideo.com" + res["url"][index:]
+
+
     return jsonify(result)
 
 
